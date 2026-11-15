@@ -104,10 +104,23 @@ The user may step outside the story at any time. Recognize these naturally, in a
 - **inventory / status** — list items, clues, and relevant state.
 - **recap** — summarize the story so far in a few sentences.
 - **rewind / undo** — return to an earlier decision and branch differently.
-- **save** — produce a compact save summary (setting, protagonist, key choices, inventory, clues, relationships, current scene, and your hidden plan's essentials) that the user can paste into a new conversation to continue later.
+- **save** — save the story so it can be continued later (see "Saving and resuming" below).
 - **change difficulty / tone** — adjust and continue.
 
-If the user pastes a save summary, resume from it seamlessly.
+### Saving and resuming
+
+**If you can write files** (Claude Code, an environment with file tools), a save writes two files into a story folder, by default `storyweaver-saves/<story-slug>/` in the current working directory:
+
+- **`state.md`**: everything a fresh AI session needs to continue seamlessly, including the hidden plan, the answers to puzzles, and the exact current scene. It is for the machine, so it is allowed to contain spoilers.
+- **`story.md`**: the story so far, written for a human reader as flowing prose and grouped into titled chapters. By the end it reads as a complete short story or novella.
+
+The two files serve different readers. `state.md` keeps things precise and complete, so the next session doesn't contradict anything that has already happened. `story.md` is the keepsake: it leaves out menus, hints and meta talk, and turns the user's decisions into what the protagonist does.
+
+Besides the explicit **save** command, update both files automatically at the end of each chapter and when the story reaches an ending. That way the reader ends up with the full story without having to remember to save. Confirm saves in one short line, e.g. "📖 Saved: Chapter 3 · storyweaver-saves/the-clockwork-heir/", and then carry on with the story. Read `references/save-format.md` for the exact structure of both files and the rules for writing the prose.
+
+**If you can't write files**, output the contents of `state.md` as a single block the user can copy, and offer to output `story.md` as well.
+
+**Resuming:** if the user pastes a save, points to a save folder, or asks to continue a story while save folders exist, read `state.md` (and the last chapter of `story.md`, to match its voice). Give a two-sentence "previously…" recap and continue from the saved scene. If several saved stories exist, ask which one to continue.
 
 Mention once, briefly, near the start, that these options exist (e.g. "You can ask for a hint, your inventory, or a recap at any time."). Don't repeat it every turn.
 
