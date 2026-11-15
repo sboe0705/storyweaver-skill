@@ -32,11 +32,23 @@ storyweaver/
 
 **Claude.ai / Claude Desktop**: download `storyweaver.zip` from the [latest release](https://github.com/sboe0705/storyweaver-skill/releases/latest) and upload it under *Settings → Capabilities → Skills*.
 
-**Claude Code**: copy the skill folder into your skills directory:
+**Claude Code**: clone the repository and run `install.sh`. It symlinks the skill into your personal skills directory, so a later `git pull` also updates the installed skill:
 
 ```bash
-cp -r storyweaver ~/.claude/skills/
+git clone https://github.com/sboe0705/storyweaver-skill.git
+cd storyweaver-skill
+./install.sh                        # ~/.claude/skills/storyweaver -> this repo
 ```
+
+| Option | Effect |
+|---|---|
+| `--project DIR` | install into `DIR/.claude/skills` (one project only) |
+| `--target DIR` | install into any skills directory, for other agents |
+| `--copy` | copy the files instead of symlinking (e.g. when the repo will be moved or deleted) |
+| `--force` | replace an existing `storyweaver` entry |
+| `--uninstall` | remove the installed skill (only a link or copy of this skill, nothing else) |
+
+**Other agents** that support the Agent Skills format: point them at the `storyweaver/` folder, or use `install.sh --target DIR`. The skill needs no code execution. File access is only used for the save files.
 
 ## Building and releasing
 

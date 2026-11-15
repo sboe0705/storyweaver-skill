@@ -20,8 +20,8 @@ jobs:
           python-version: "3.x"
       - name: Check shell scripts
         run: |
-          bash -n build.sh release.sh
-          shellcheck build.sh release.sh
+          bash -n build.sh install.sh release.sh
+          shellcheck build.sh install.sh release.sh
       - name: Check and build zip
         run: ./build.sh
       # archive: false uploads the zip as-is instead of wrapping it in a
