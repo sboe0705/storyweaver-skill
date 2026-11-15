@@ -29,13 +29,28 @@ storyweaver/
 
 ## Installation
 
-**Claude Code** — copy the skill folder into your skills directory:
+**Claude.ai / Claude Desktop**: download `storyweaver.zip` from the [latest release](https://github.com/sboe0705/storyweaver-skill/releases/latest) and upload it under *Settings → Capabilities → Skills*.
+
+**Claude Code**: copy the skill folder into your skills directory:
 
 ```bash
 cp -r storyweaver ~/.claude/skills/
 ```
 
-**Claude.ai** — zip the `storyweaver` folder and upload it under *Settings → Capabilities → Skills*.
+## Building and releasing
+
+```bash
+./build.sh               # check the skill and write dist/storyweaver.zip
+./build.sh --check-only  # only run the checks
+./release.sh             # suggest the next version, tag it, and push the tag
+./release.sh --dry-run   # show what a release would do
+```
+
+`build.sh` checks the `SKILL.md` frontmatter (name, description length) and makes sure that every `references/…` file the skill mentions exists. Then it packages the skill, with the LICENSE, into a reproducible zip.
+
+GitHub Actions:
+- **Build** (`.github/workflows/build.yml`) runs on every push to `main` and on every pull request. It checks the scripts, builds the zip, and uploads it as a workflow artifact.
+- **Release** (`.github/workflows/release.yml`) runs when a `v*` tag is pushed, e.g. by `release.sh`. It builds the zip and publishes it as a GitHub release with generated notes.
 
 ## Usage
 
