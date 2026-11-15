@@ -1,6 +1,9 @@
 ---
 name: storyweaver
 description: Runs interactive, choose-your-own-path stories of any genre (fantasy, sci-fi, mystery, horror, romance, historical, fairy tales for kids, and more) where the user makes decisions and solves riddles and puzzles that shape the plot and lead to different endings. Use this skill whenever the user wants to play, start, or continue an interactive story, text adventure, gamebook, choose-your-own-adventure, story game, escape-room-style puzzle story, murder mystery to solve, bedtime story with choices, or a role-play adventure where they decide what happens next — even if they don't use the word "interactive", e.g. "tell me a story where I decide", "let's play a detective game", "I want to explore a haunted castle", or "continue our adventure".
+license: Apache-2.0
+metadata:
+  author: Sebastian Böhm
 ---
 
 # Storyweaver

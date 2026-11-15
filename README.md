@@ -21,10 +21,11 @@ An AI skill that turns Claude into a narrator and game master for **interactive 
 ```
 storyweaver/
 ├── SKILL.md              # Core instructions: setup, turn format, choices, puzzles, pacing
-└── references/
-    ├── puzzles.md        # Puzzle catalog, fairness checklist, difficulty scaling
-    ├── genres.md         # Genre-specific storytelling toolkits
-    └── save-format.md    # Structure of state.md and story.md, chapter rules
+├── references/
+│   ├── puzzles.md        # Puzzle catalog, fairness checklist, difficulty scaling
+│   ├── genres.md         # Genre-specific storytelling toolkits
+│   └── save-format.md    # Structure of state.md and story.md, chapter rules
+└── NOTICE                # Author, license, source and Buy Me a Coffee link (ships in the zip, not loaded by the agent)
 ```
 
 ## Installation
@@ -60,6 +61,10 @@ Just ask for a story, for example:
 - "Tell my 7-year-old a bedtime story where she gets to choose what happens."
 - "I want a hard sci-fi adventure with lots of puzzles."
 - "Surprise me!"
+
+## Support
+
+If this skill is useful to you, you can support its development with a coffee: [buymeacoffee.com/sboe0705](https://buymeacoffee.com/sboe0705) ☕
 
 ## License
 
